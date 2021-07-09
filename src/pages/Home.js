@@ -4,7 +4,8 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/core';
 
-import New from '../components/New';
+import Porcoes from '../components/Porcoes';
+import Bebidas from '../components/Bebidas';
 
 export default function Home() {
     const navigation = useNavigation();
@@ -12,7 +13,7 @@ export default function Home() {
     return (
         <ScrollView
             showsHorizontalScrollIndicator={false}
-            style={{backgroundColor: '#FFF',}}
+            style={{backgroundColor: '#f0f0f0',}}
         >
 
             <View style={styles.header}>
@@ -32,30 +33,58 @@ export default function Home() {
 
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}> 
 
-                <New
+                <Porcoes
                     cover={require('../assets/costelacardapio.jpg')}
                     name="Costela"
                     description="Costela assada ao molho barbecue + frango empanado frito + batatas fritas especiais."
-                    onPress={() =>{navigation.navigate('detail')}}
+                    onPress={() =>{}}
+                    price="R$ 79,90"
                 />
 
-                <New
+                <Porcoes
                     cover={require('../assets/chickenandfries.jpg')}
                     name="Frango Empanado Frito"
                     description="SUPER FRIED é o clássico americano frango empanado frito + batatas especiais que você só encontra aqui."
-                    onPress={() =>{ }}
+                    price="R$ 40,00"
+                    onPress={() =>{}}
                 />
 
-                <New
+                <Porcoes
                     cover={require('../assets/batata.png')}
                     name="Batata frita com cheedar e bacon"
                     description="Batata frita com aquele cheedar e bacon, perfeito pra acompanhar sua brejinha."
-                    onPress={() =>{ }}
+                    onPress={() =>{}}
+                    price="R$ 35,00"
                 />
 
     
             </ScrollView>
-        
+
+            <View>
+                <Text style={[styles.title, { marginTop: 20}] }>Bebidas</Text>                
+            </View>
+             
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>
+
+                <Bebidas
+                    cover={require('../assets/caipvodka.png')}
+                    price={'R$ 7,00'}
+                    description={'O gatilho começa quando você dá de cara com uma promo dessas: CAIPIVODKA EM DOBRO'}
+                />
+                <Bebidas
+                    cover={require('../assets/negronibebida.png')}
+                    price={'R$ 8,90'}
+                    description={'Nada melhor que uma bebida pra aquecer sua noite, feita com gím, vermute rosso e campari!'}
+                />
+                <Bebidas
+                    cover={require('../assets/gin.png')}
+                    price={'R$ 9,90'}
+                    description={'Experimente nosso gin tropical e deixe-se levar por esse doce balanço. Cheers!🍹'}
+                />
+
+            </ScrollView>
+
+
         </ScrollView>
     )
 }

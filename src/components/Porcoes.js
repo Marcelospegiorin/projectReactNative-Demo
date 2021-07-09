@@ -6,6 +6,7 @@ import { StyleSheet, Image, View, Text } from 'react-native';
 export default function New(props) {
     return (
         <TouchableOpacity onPress={(props.onPress)} style={styles.container}>
+            <Text style={styles.badge}>Novo</Text>
             <Image 
                 source={props.cover}
                 style={styles.cover}
@@ -15,9 +16,7 @@ export default function New(props) {
                 <Text style={styles.title}>{props.name}</Text>
 
                 <View style={styles.dot}>
-                </View>
-
-                <Text style={styles.badge}>Novo</Text>
+                </View>               
 
             </View>
 
@@ -27,7 +26,7 @@ export default function New(props) {
 
             <View style={styles.footer}>    
                 <View style={{width: '80%'}}>
-                    <Text style={styles.price}>R$ 79,90</Text>
+                    <Text style={styles.price}>{props.price}</Text>
                 </View>
                 <View style={{ width: '20%'}}>
                     <Ionicons name="ios-add-circle" size={24} color="black"/>
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
     container:{
         marginTop: 20,
         backgroundColor: '#FFF',
-        height: 260,
+        height: 265,
         width: 220,
         shadowColor: '#000',
         shadowOffset: { width: 1, height: 2},
@@ -52,6 +51,7 @@ const styles = StyleSheet.create({
         elevation: 2,
         borderRadius: 15,
         padding: 15,
+        paddingTop: 5,
         marginRight: 30,
         marginLeft: 2,
         marginBottom: 4,
@@ -63,21 +63,15 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     content:{
-        flexDirection: 'row',
+        
         alignItems: 'center',
         marginVertical: 10,
     },
     title:{
         fontFamily: 'Montserrat_700Bold_Italic',
         fontSize: 12,
-        color: '#4f4a4a'
-    },
-    dot:{
-        width: 4,
-        height: 4,
-        borderRadius: 4,
-        backgroundColor: 'red',
-        marginHorizontal: 4,
+        color: '#4f4a4a',
+        textAlign: 'center'
     },
     badge:{
         color: 'red',
@@ -85,19 +79,21 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat_700Bold', 
     },
     description:{
-        fontFamily: 'Montserrat_400Regular',
+        fontFamily: 'Montserrat_600SemiBold',
         fontSize: 11,
         color: '#4f4a4a',
-        textAlign: 'justify'
+        textAlign: 'auto',
+        height: 45
     },
     footer:{
         flexDirection: 'row',
-        marginTop: 5,
+        marginTop: 7,
         alignItems: 'center',
         width: '100%'
     },
     price:{
         fontSize: 15,
-        fontFamily: 'Montserrat_400Regular'
+        fontFamily: 'Montserrat_400Regular',
+        marginBottom: 5,
     }
 });
